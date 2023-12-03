@@ -102,6 +102,53 @@ int main() {
                 }
 
                 case 'f': {
+
+                    int index;
+                    cout << "Ingrese el índice del empleado: ";
+                    cin >> index;
+
+                    if (index >= 0 && index < employees.size()) {
+                    
+                        char option2;
+                        cout << "Módulo salarios:\n"
+                        << "1) Mostrar salario actual\n"
+                        << "2) Agregar bono\n"
+                        << "3) Deducir salario\n"
+                        << "Seleccione una opción: ";
+                        cin >> option2;
+
+                        switch (option2) {
+                        case '1': {
+                            employees[index].showDetails();
+
+                            break;
+                        }
+
+                        case '2': {
+                            double raise;
+                            cout << "Ingrese la cantidad del bono: ";
+                            cin >> raise;
+
+                            employees[index].giveRaise(raise);
+
+                            break;
+                        }
+
+                        case '3': {
+                            double deduction;
+                            cout << "Ingrese la cantidad de salario deducido: ";
+                            cin >> deduction;
+
+                            employees[index].Deduct(deduction);
+
+                            break;
+                        }
+                    }
+
+                    } else {
+                    cout << "Índice de empleado no válido." << endl;
+                    }
+                    
                     // Implementar lógica para mostrar salarios (base, bonos y deducciones)
                     break;
                 }
